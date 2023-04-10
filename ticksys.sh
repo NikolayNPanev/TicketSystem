@@ -1,4 +1,3 @@
-
 #!/usr/bin/env bash
 params_count=$#
 ticket_type=$1
