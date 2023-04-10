@@ -64,6 +64,9 @@ validate_input () {
 		ticket_help
 		exit
 	fi
+	if [[ --help == $ticket_type ]]; then
+		ticket_help
+	fi
 	#if number of parameters is !3,
 	#echo the error and exit
 	if [[ 3 != $1 ]]; then
