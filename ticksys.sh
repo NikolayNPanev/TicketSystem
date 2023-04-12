@@ -97,12 +97,11 @@ ticket_create () {
 		;;
 	esac
 
-	write_to_file $dir $ticket_filename $ticket_content
-
+	write_to_file $dir $ticket_filename "$ticket_content"
 	ticket_create_success
 }
 
 #MAIN ========================================
 validate_input $params_count
-ticket_create $ticket_type $ticket_filename $ticket_content
+ticket_create $ticket_type $ticket_filename "$ticket_content"
 
