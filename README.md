@@ -12,7 +12,7 @@
 ```
 bash install.bash
 ```
-##### After the install, run:
+##### After the install, restaer the console,then run:
 ```
 ticket --help
 ```
