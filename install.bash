@@ -1,7 +1,7 @@
 ##!/usr/bin/env bash
-linux_distro = none;
-if [[ grep '^(ID=kali)' == "ID=kali" ]]; then
-	linux_distro = "kali"
+isBash = true;
+if [[ $SHELL != "/bin/bash" ]]; then
+	isBash = false
 fi
 
 create_ticket_dirs () {
@@ -14,19 +14,19 @@ create_ticket_dirs () {
 	if [ -d ~/Tickets/Issues ]; then
 		echo "	Tickets/Issues Directory already exists"
 	else
-		mkdir ~/Tickets
+		mkdir ~/Tickets/Issues
 		echo "	Created ~/Tickets/Issues"
 	fi
 	if [ -d ~/Tickets/Ideas ]; then
 		echo "	Tickets/Ideas Directory already exists"
 	else
-		mkdir ~/Tickets
+		mkdir ~/Tickets/Ideas
 		echo "	Created ~/Tickets/Ideas"
 	fi
 	if [ -d ~/Tickets/FutureAutomations ]; then
 		echo "	Tickets/FutureAutomations Directory already exists"
 	else
-		mkdir ~/Tickets
+		mkdir ~/Tickets/FutureAutomations
 		echo "	Created ~/Tickets/FutureAutomations"
 	fi
 	if [ -d ~/TicketSystem ]; then
@@ -45,7 +45,7 @@ create_ticket_aliases () {
 
 
 	#if alias DOES NOT exist, create it, else, do not
-	if [[ linux_distro != "kali" ]]; then
+	if [[ $isBash ]]; then
 		if $(grep -q 'alias ticket=' ~/.bash_aliases) ; then
 			echo "	Alias ticket already exists"
 		else
@@ -71,7 +71,7 @@ create_ticket_aliases () {
 		else
 			cat all-tickets.alias >> ~/.bash_aliases
 		fi
-	else #KALI LINUX INTEGRATION. WHY KALI?!?! WHY?!?!?!?
+	else #WHY WOULDN'T YOU USE BASH?!?!?!?!
 		if $(grep -q 'alias ticket=' ~/.shell_aliases) ; then
 			echo "	Alias ticket already exists"
 		else
