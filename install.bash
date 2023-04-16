@@ -10,19 +10,19 @@ create_ticket_dirs () {
 	if [ -d ~/Tickets/Issues/ ]; then
 		echo "	Tickets/Issues Directory already exists"
 	else
-		mkdir ~/Tickets/
+		mkdir ~/Tickets/Issues
 		echo "	Created ~/Tickets/Issues"
 	fi
 	if [ -d ~/Tickets/Ideas/ ]; then
 		echo "	Tickets/Ideas Directory already exists"
 	else
-		mkdir ~/Tickets/
+		mkdir ~/Tickets/Ideas
 		echo "	Created ~/Tickets/Ideas"
 	fi
 	if [ -d ~/Tickets/FutureAutomations/ ]; then
 		echo "	Tickets/FutureAutomations Directory already exists"
 	else
-		mkdir ~/Tickets/
+		mkdir ~/Tickets/FutureAutomations
 		echo "	Created ~/Tickets/FutureAutomations"
 	fi
 	if [ -d ~/TicketSystem/ ]; then
