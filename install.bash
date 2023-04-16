@@ -43,31 +43,26 @@ create_ticket_aliases () {
 		echo "	Alias ticket already exists"
 	else
 		cat ticket_alias.alias >> ~/.bash_aliases
-		resterm
 	fi
 	if $(grep -q 'alias issues=' ~/.bash_aliases) ; then
 		echo "	Alias issues already exists"
 	else
 		cat issues.alias >> ~/.bash_aliases
-		resterm
 	fi
 	if $(grep -q 'alias f-autos=' ~/.bash_aliases) ; then
 		echo "	Alias f-autos already exists"
 	else
 		cat f-autos.alias >> ~/.bash_aliases
-		resterm
 	fi
 	if $(grep -q 'alias ideas=' ~/.bash_aliases) ; then
 		echo "	Alias ideas already exists"
 	else
 		cat ideas.alias >> ~/.bash_aliases
-		resterm
 	fi
 	if $(grep -q 'alias all-tickets=' ~/.bash_aliases) ; then
 		echo "	Alias all-tickets already exists"
 	else
 		cat all-tickets.alias >> ~/.bash_aliases
-		resterm
 	fi
 }
 
