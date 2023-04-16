@@ -66,6 +66,7 @@ create_ticket_aliases () {
 	fi
 }
 
+#MAIN
 create_ticket_dirs
 create_ticket_aliases
 
