@@ -1,38 +1,38 @@
 ##!/usr/bin/env bash
 
 create_ticket_dirs () {
-	if [ -d ~/Tickets ]; then
+	if [ -d ~/Tickets/ ]; then
 		echo "	Tickets Directory already exists"
 	else
-		mkdir ~/Tickets
+		mkdir ~/Tickets/
 		echo "	Created ~/Tickets"
 	fi
-	if [ -d ~/Tickets/Issues ]; then
+	if [ -d ~/Tickets/Issues/ ]; then
 		echo "	Tickets/Issues Directory already exists"
 	else
-		mkdir ~/Tickets
+		mkdir ~/Tickets/
 		echo "	Created ~/Tickets/Issues"
 	fi
-	if [ -d ~/Tickets/Ideas ]; then
+	if [ -d ~/Tickets/Ideas/ ]; then
 		echo "	Tickets/Ideas Directory already exists"
 	else
-		mkdir ~/Tickets
+		mkdir ~/Tickets/
 		echo "	Created ~/Tickets/Ideas"
 	fi
-	if [ -d ~/Tickets/FutureAutomations ]; then
+	if [ -d ~/Tickets/FutureAutomations/ ]; then
 		echo "	Tickets/FutureAutomations Directory already exists"
 	else
-		mkdir ~/Tickets
+		mkdir ~/Tickets/
 		echo "	Created ~/Tickets/FutureAutomations"
 	fi
-	if [ -d ~/TicketSystem ]; then
+	if [ -d ~/TicketSystem/ ]; then
 		echo "	TicketSystem Directory already exists"
 	else
-		mkdir ~/TicketSystem
+		mkdir ~/TicketSystem/
 		echo "	Created ~/TicketSystem"
 		cp ./ticksys.sh ~/TicketSystem/
 		cp ./install.bash ~/TicketSystem/
-		cp ./ticksys_documentation ~/TicketSystem/
+		cp ./ticksys_documentation.txt ~/TicketSystem/
 	fi
 
 }
