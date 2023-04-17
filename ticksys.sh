@@ -79,6 +79,28 @@ ticket_remove () {
 
 }
 
+ticket_complete () {
+	directory_path=~/Tickets
+	file_name=$1
+
+	file_count=$(find $directory_path -name $file_name -type f -not -path "*Complete*"| wc -l)
+
+	if [[ ! -d ~/Tickets/Complete ]];then
+		echo "Complete doesn't exist"
+		mkdir ~/Tickets/Complete
+		echo "Creating folder Complete"
+	fi
+	if [[ $file_count -gt 0 ]]; then
+		file_path=$(find $directory_path -type f -not -path "*Complete*" -print | grep $1)
+		echo "	Moving ticket: $file_path"
+		cp $file_path $directory_path/Complete
+		rm $file_path
+
+	else
+		echo "$1 doesn't exis or is completed!!!"
+	fi
+}
+
 validate_input () {
 		#if no parameters are input, show help and exit
 	if [[ 0 == $1 ]]; then
@@ -91,6 +113,11 @@ validate_input () {
 	fi
 	if [[ "remove" == $ticket_type && $params_count == 2 ]]; then
 		ticket_remove $ticket_filename
+		exit
+	fi
+	if [[ "complete" == $ticket_type && $params_count == 2 ]]; then
+		ticket_complete $ticket_filename
+		exit
 	fi
 	#if number of parameters is !3,
 	#echo the error and exit
@@ -129,4 +156,3 @@ ticket_create () {
 #MAIN ========================================
 validate_input $params_count
 ticket_create $ticket_type $ticket_filename "$ticket_content"
-
