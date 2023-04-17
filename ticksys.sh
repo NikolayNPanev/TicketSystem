@@ -58,6 +58,27 @@ ticket_create_success () {
 	echo "	       -----------        "
 	exit
 }
+
+ticket_remove () {
+
+	directory_path=~/Tickets
+	file_name=$1
+
+	file_count=$(find $directory_path -name $file_name | wc -l)
+
+	if [[ $file_count -gt 0 ]]; then
+		file_path=$(find $directory_path -print | grep $1)
+		echo "	Removing ticket: $file_path"
+		rm $file_path
+
+	else
+		echo "$1 doesn't exist!!!"
+	fi
+
+	exit
+
+}
+
 validate_input () {
 		#if no parameters are input, show help and exit
 	if [[ 0 == $1 ]]; then
@@ -66,6 +87,10 @@ validate_input () {
 	fi
 	if [[ --help == $ticket_type ]]; then
 		ticket_help
+		exit
+	fi
+	if [[ "remove" == $ticket_type && $params_count == 2 ]]; then
+		ticket_remove $ticket_filename
 	fi
 	#if number of parameters is !3,
 	#echo the error and exit

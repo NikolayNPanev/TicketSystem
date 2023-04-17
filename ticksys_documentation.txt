@@ -16,6 +16,7 @@ Ticket Create Functions:
 
 File Functions:
 	write_to_file - merges the directory with the filename and writes the ticket contents in the file in the directory, creating or overwriting the file in the proccess
+	ticket_remove - checks if the ticket exists in the Tickets dir, then removes it if it does exist.
 
 Global Variables:
 	params_count - number of parameters input by the user ($#)
