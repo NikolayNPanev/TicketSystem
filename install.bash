@@ -1,8 +1,23 @@
 ##!/usr/bin/env bash
-isBash = true;
-if [[ $SHELL != "/bin/bash" ]]; then
-	isBash = false
+
+whatShell="unsupported"
+if [[ $SHELL == "/bin/bash" ]]; then
+	whatShell="bash"
 fi
+if [[ $SHELL == "/bin/zsh" ]]; then
+	whatShell="zsh"
+fi
+if [[ $whatShell == "unsupported" ]]; then
+	echo "	       --ERROR--        "
+	echo "	Your shell is unsupported!!!"
+	echo "	Please consult the documentation or github repository to see what shells are supported by the program."
+	echo " 	current shell: $SHELL"
+	echo "	       ---------        "
+	echo ""
+	exit
+fi
+
+
 
 create_ticket_dirs () {
 	if [ -d ~/Tickets ]; then
@@ -43,9 +58,9 @@ create_ticket_dirs () {
 
 create_ticket_aliases () {
 
-
 	#if alias DOES NOT exist, create it, else, do not
-	if [[ $isBash ]]; then
+	if [[ $whatShell == "bash" ]]; then
+		touch ~/.bash_aliases
 		if $(grep -q 'alias ticket=' ~/.bash_aliases) ; then
 			echo "	Alias ticket already exists"
 		else
@@ -71,31 +86,33 @@ create_ticket_aliases () {
 		else
 			cat all-tickets.alias >> ~/.bash_aliases
 		fi
-	else #WHY WOULDN'T YOU USE BASH?!?!?!?!
-		if $(grep -q 'alias ticket=' ~/.shell_aliases) ; then
+	fi
+	if [[ $whatShell == "zsh" ]];then #WHY WOULDN'T YOU USE BASH?!?!?!?!
+		touch ~/.zshrc
+		if $(grep -q 'alias ticket=' ~/.zshrc) ; then
 			echo "	Alias ticket already exists"
 		else
-		cat ticket_alias.alias >> ~/.shell_aliases
+		cat ticket_alias.alias >> ~/.zshrc
 		fi
-		if $(grep -q 'alias issues=' ~/.shell_aliases) ; then
+		if $(grep -q 'alias issues=' ~/.zshrc) ; then
 			echo "	Alias issues already exists"
 		else
-			cat issues.alias >> ~/.shell_aliases
+			cat issues.alias >> ~/.zshrc
 		fi
-		if $(grep -q 'alias f-autos=' ~/.shell_aliases) ; then
+		if $(grep -q 'alias f-autos=' ~/.zshrc) ; then
 			echo "	Alias f-autos already exists"
 		else
-			cat f-autos.alias >> ~/.shell_aliases
+			cat f-autos.alias >> ~/.zshrc
 		fi
-		if $(grep -q 'alias ideas=' ~/.shell_aliases) ; then
+		if $(grep -q 'alias ideas=' ~/.zshrc) ; then
 			echo "	Alias ideas already exists"
 		else
-			cat ideas.alias >> ~/.shell_aliases
+			cat ideas.alias >> ~/.zshrc
 		fi
-		if $(grep -q 'alias all-tickets=' ~/.shell_aliases) ; then
+		if $(grep -q 'alias all-tickets=' ~/.zshrc) ; then
 			echo "	Alias all-tickets already exists"
 		else
-			cat all-tickets.alias >> ~/.shell_aliases
+			cat all-tickets.alias >> ~/.zshrc
 		fi
 	fi
 }
@@ -103,5 +120,3 @@ create_ticket_aliases () {
 #MAIN
 create_ticket_dirs
 create_ticket_aliases
-
-exit
