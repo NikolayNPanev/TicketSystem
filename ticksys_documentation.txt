@@ -27,5 +27,11 @@ Global Variables:
 
 
 INSTALLATION
+	installation only occurs if the shell is supported
+
 	create_ticket_dirs - checks if each baked in directory has been created. If not, it's created
 	create_ticket_aliases- checks if each alias exists inside the USER's .bash_aliases file. If not, it concatenates it to the file. 
+
+SUPPORTED SHELLS
+	Born Again Shell (BASH)
+	Z Shell (ZSH)
