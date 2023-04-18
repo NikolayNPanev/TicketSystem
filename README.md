@@ -6,9 +6,6 @@
 
 ### License: MIT
 
-### Note: 
-##### It Only works on the Born Again Shell for now, but other shell integrations are on the way
-
 #### How to install:
 ##### Download the project and extract it to a directory
 ##### Run the following command in the directory you extracted it in:
@@ -20,3 +17,7 @@ bash install.bash
 ticket --help
 ```
 ##### to see how to use the system
+
+### Supported Shells:
+##### BASH
+##### ZSH
