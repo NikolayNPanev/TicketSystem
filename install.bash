@@ -4,7 +4,7 @@ whatShell="unsupported"
 if [[ $SHELL == "/bin/bash" ]]; then
 	whatShell="bash"
 fi
-if [[ $SHELL == "/bin/zsh" ]]; then
+if [[ $SHELL == "/usr/bin/zsh" ]]; then
 	whatShell="zsh"
 fi
 if [[ $whatShell == "unsupported" ]]; then
@@ -51,7 +51,7 @@ create_ticket_dirs () {
 		echo "	Created ~/TicketSystem"
 		cp ./ticksys.sh ~/TicketSystem/
 		cp ./install.bash ~/TicketSystem/
-		cp ./ticksys_documentation ~/TicketSystem/
+		cp ./ticksys_documentation.txt ~/TicketSystem/
 	fi
 
 }
