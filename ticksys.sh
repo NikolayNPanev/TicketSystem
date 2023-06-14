@@ -1,9 +1,12 @@
 
 #!/usr/bin/env bash
+
+#GLOBAL USER INPUT PARAMS
 params_count=$#
 ticket_type=$1
 ticket_filename=$2
 ticket_content=$3
+
 ticket_help () {
 	echo "	       --TICKETS--        "
     echo "	Tickets take 3 parametes:"

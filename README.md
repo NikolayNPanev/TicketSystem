@@ -18,6 +18,8 @@ ticket --help
 ```
 ##### to see how to use the system
 
+##### If you do not want to restart the console, use the 'source' command to activate the new aliases in the local shell alias file.
+
 ### Supported Shells:
 ##### BASH
 ##### ZSH

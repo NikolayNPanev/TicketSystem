@@ -23,14 +23,14 @@ Global Variables:
 	params_count - number of parameters input by the user ($#)
 	ticket_type - type input by the user ($1)
 	ticket_filename - ticket filename input by the user ($2)
-	ticket_contents - ticket contents input by the user (#3)
+	ticket_contents - ticket contents input by the user ($3)
 
 
 INSTALLATION
 	installation only occurs if the shell is supported
 
 	create_ticket_dirs - checks if each baked in directory has been created. If not, it's created
-	create_ticket_aliases- checks if each alias exists inside the USER's .bash_aliases file. If not, it concatenates it to the file. 
+	create_ticket_aliases - checks if each alias exists inside the USER's shell alias file. If not, it concatenates it to the file. 
 
 SUPPORTED SHELLS
 	Born Again Shell (BASH)
