@@ -29,6 +29,7 @@ ticket_help () {
         exit
 }
 param_count_error () {
+
 	echo "	       --ERROR--        "
 	echo "	Tickets take 3 parametes:"
 	echo "	\"ticket [type] [filename] [content]\""
@@ -36,6 +37,16 @@ param_count_error () {
 	echo "	write contents in \"\""
 	echo "	       ---------        "
 	echo ""
+	if [[ 3 > $params_count ]]; then
+		echo "	================"
+		echo "	=Error code 101="
+		echo "	================"
+	fi	
+	if [[ 3 < $params_count ]]; then
+		echo "	================"
+		echo "	=Error code 102="
+		echo "	================"
+	fi	
 	exit
 }
 
@@ -45,11 +56,14 @@ invalid_type_error () {
 	echo "	    [auto] [idea] [issue]"
 	echo "	       ---------        "
 	echo ""
+	echo "	================"
+	echo "	=Error code 103="
+	echo "	================"
 	exit
 }
 write_to_file () {
 	dir=$1$2
-	echo $3>$dir
+	echo "$3">$dir
 }
 ticket_create_success () {
 	#print message on success
@@ -75,7 +89,10 @@ ticket_remove () {
 		rm $file_path
 
 	else
-		echo "$1 doesn't exist!!!"
+		echo "	\"$1\" doesn't exist!!!"
+		echo "	================"
+		echo "	=Error code 201="
+		echo "	================"
 	fi
 
 	exit
@@ -100,7 +117,11 @@ ticket_complete () {
 		rm $file_path
 
 	else
-		echo "$1 doesn't exis or is completed!!!"
+		echo
+		echo "	\"$1\" doesn't exis or is completed!!!"
+		echo "	================"
+		echo "	=Error code 202="
+		echo "	================"
 	fi
 }
 

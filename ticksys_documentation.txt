@@ -33,5 +33,18 @@ INSTALLATION
 	create_ticket_aliases - checks if each alias exists inside the USER's shell alias file. If not, it concatenates it to the file. 
 
 SUPPORTED SHELLS
-	Born Again Shell (BASH)
+	Bourne Again Shell (BASH)
 	Z Shell (ZSH)
+
+ERROR CODES:
+
+1XX - INVALID USER INPUTS
+
+101 - TOO FEW ARGUMENTS
+102 - TOO MANY ARGUMENTS
+103 - INVALID TICKET TYPE
+
+2XX - FAILED TICKET OPERATIONS
+
+201 - CANNOT REMOVE [TICKET] - [TICKET] DOESN'T EXIST
+202 - [TICKET] DOESN'T EXIST OR IS COMPLETED
