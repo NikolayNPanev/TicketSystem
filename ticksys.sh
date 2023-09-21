@@ -8,6 +8,7 @@ ticket_filename=$2
 ticket_content=$3
 
 ticket_help () {
+	echo
 	echo "	       --TICKETS--        "
     echo "	Tickets take 3 parametes:"
     echo "	\"ticket [type] [filename] [content]\""
@@ -25,40 +26,48 @@ ticket_help () {
 	echo "	!!! WARNING !!!"
 	echo "	If a ticket with the same filename already exists, it will be overwritten!"
         echo "	       ----------        "
-        echo ""
+        echo 
         exit
 }
 param_count_error () {
-
-	echo "	       --ERROR--        "
-	echo "	Tickets take 3 parametes:"
-	echo "	\"ticket [type] [filename] [content]\""
-	echo "	Hint:"
-	echo "	write contents in \"\""
-	echo "	       ---------        "
-	echo ""
+	
+	echo
 	if [[ 3 > $params_count ]]; then
 		echo "	================"
 		echo "	=Error code 101="
 		echo "	================"
+		echo 
+		echo "	Too few arguments"
 	fi	
 	if [[ 3 < $params_count ]]; then
 		echo "	================"
 		echo "	=Error code 102="
 		echo "	================"
+		echo 
+		echo "	Too many arguments"
 	fi	
+	echo
+	echo "	Tickets take 3 parametes:"
+	echo "	\"ticket [type] [filename] [content]\""
+	echo "	Hint:"
+	echo "	write contents in \"\""
+	echo "	       ---------        "
+	echo 
 	exit
 }
 
 invalid_type_error () {
-	echo "	       --ERROR--        "
-	echo "	Must input valid ticket type:"
-	echo "	    [auto] [idea] [issue]"
-	echo "	       ---------        "
-	echo ""
+	echo 
 	echo "	================"
 	echo "	=Error code 103="
 	echo "	================"
+	echo
+	echo "	Invalid ticket type"
+	echo
+	echo "	Must input valid ticket type:"
+	echo "	    [auto] [idea] [issue]"
+	echo "	       ---------        "
+	echo
 	exit
 }
 write_to_file () {
@@ -67,12 +76,14 @@ write_to_file () {
 }
 ticket_create_success () {
 	#print message on success
+	echo
 	echo "	       --SUCCESS--        "
 	echo "	Ticket created successfully at:"
 	echo ""
 	echo "	"$dir
 	echo ""
 	echo "	       -----------        "
+	echo
 	exit
 }
 
@@ -89,10 +100,13 @@ ticket_remove () {
 		rm $file_path
 
 	else
-		echo "	\"$1\" doesn't exist!!!"
+		echo
 		echo "	================"
 		echo "	=Error code 201="
 		echo "	================"
+		echo
+		echo "	\"$1\" doesn't exist!!!"
+		echo
 	fi
 
 	exit
@@ -118,10 +132,12 @@ ticket_complete () {
 
 	else
 		echo
-		echo "	\"$1\" doesn't exis or is completed!!!"
 		echo "	================"
 		echo "	=Error code 202="
 		echo "	================"
+		echo 
+		echo "	\"$1\" doesn't exis or is completed!!!"
+		echo
 	fi
 }
 
@@ -169,6 +185,14 @@ ticket_create () {
 		dir=~/Tickets/Issues/
 		;;
 		*)
+		echo
+		echo "	================"
+		echo "	=Error code 203="
+		echo "	================"
+		echo
+		echo "	Failed to create ticket"
+		echo
+		echo "	Reason:"
 		invalid_type_error
 		;;
 	esac
