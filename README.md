@@ -23,7 +23,7 @@ make
 make install
 ```
 ### !!WARNING!!
-##### The command ```make install``` will require super user privilages, because it copies the binaries inside the /home/usr/bin folder.
+##### The command ```make install``` will require super user privilages, because it copies the binaries inside the /usr/local/bin folder.
 ##### If you lack user privilages, or don't want to use them, I suggest you make an alias inside your shell rc file in you home directory (~/.bashrc, ~/.zshrc etc)
 ##### In this alias you can link the binary compiled inside package/bin/
 ##### For bash, it would look something like:
