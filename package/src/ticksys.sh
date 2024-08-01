@@ -141,9 +141,9 @@ ticket_complete () {
 		rm $file_path
 	else
 		echo
-		echo "	================"
-		echo "	=Error code 202="
-		echo "	================"
+		echo "	===================="
+		echo "	=Error code 202/204="
+		echo "	===================="
 		echo 
 		echo "	\"$1\" doesn't exis or is completed!!!"
 		echo

@@ -29,6 +29,10 @@ User Input Validation Fuctions:
 Ticket Create Functions:
 	ticket_create - checks for type validity(displays invalid_type_error if invalid), on a pass, runs write_to_file and ticket_create_success
 
+Ticket Reading Functions:
+	ticket_read - checks if a ticket exists and prints it out(could throw error 202)
+	ticket_read_all - prints all tickets with their file directories(could throw error 202)
+
 File Functions:
 	write_to_file - merges the directory with the filename and writes the ticket contents in the file in the directory, creating or overwriting the file in the proccess
 	ticket_remove - checks if the ticket exists in the Tickets dir, including the Complete folder, then removes it if it does exist.
@@ -52,8 +56,9 @@ ERROR CODES:
 2XX - FAILED TICKET OPERATIONS
 
 201 - CANNOT REMOVE [TICKET] - [TICKET] DOESN'T EXIST
-202 - [TICKET] DOESN'T EXIST OR IS COMPLETED
+202 - [TICKET] DOESN'T EXIST, NO TICKETS CREATED
 203 - FAILED TO CREATE TICKET
+204 - TICKET ALREADY COMPLETED
 
 
 ###################################
