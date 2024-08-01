@@ -25,5 +25,5 @@ install: ticket
 # Make ticket directories
 	mkdir -p ~/Tickets/Ideas
 	mkdir -p ~/Tickets/Issues
-	mkdir -p ~/Tickets/Automations
+	mkdir -p ~/Tickets/FutureAutomation
 	
