@@ -1,5 +1,9 @@
+#!/bin/bash
 
-#!/usr/bin/env bash
+###################################
+# CopyRight: Nikolay Panev        #
+# 2024 - Malko Turnovo, Bulgaria  #
+###################################
 
 #GLOBAL USER INPUT PARAMS
 params_count=$#
