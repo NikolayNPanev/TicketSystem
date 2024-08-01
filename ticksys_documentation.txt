@@ -1,5 +1,20 @@
 TICKETING SYSTEM
 
+DEPENDENCIES:
+shc (for compilation)
+make (for compilation)
+
+Compilation and Installation:
+	In order to compile this project, you would need the followin
+	On level package/ run the following commands:
+	$ make
+	$ make install
+
+	!!WARNING!!
+	The command "$ make install" will require super user privilages, because it copies the binaries inside the /home/usr/bin folder.
+	If you lack user privilages, I suggest you make an alias inside your shell rc file in you home directory (~/.bashrc, ~/.zshrc etc)
+	In this alias you can link the binary compiled inside package/bin/
+
 Error Message Functions:
 	param_count_error - show when the number of parameters is different than 3 or 0, because if it is 0, the ticket_help message should be displayed
 	invalid_type_error - show when the type is not set to one of the predetermined ones
@@ -14,6 +29,10 @@ User Input Validation Fuctions:
 Ticket Create Functions:
 	ticket_create - checks for type validity(displays invalid_type_error if invalid), on a pass, runs write_to_file and ticket_create_success
 
+Ticket Reading Functions:
+	ticket_read - checks if a ticket exists and prints it out(could throw error 202)
+	ticket_read_all - prints all tickets with their file directories(could throw error 202)
+
 File Functions:
 	write_to_file - merges the directory with the filename and writes the ticket contents in the file in the directory, creating or overwriting the file in the proccess
 	ticket_remove - checks if the ticket exists in the Tickets dir, including the Complete folder, then removes it if it does exist.
@@ -24,17 +43,7 @@ Global Variables:
 	ticket_type - type input by the user ($1)
 	ticket_filename - ticket filename input by the user ($2)
 	ticket_contents - ticket contents input by the user ($3)
-
-
-INSTALLATION
-	installation only occurs if the shell is supported
-
-	create_ticket_dirs - checks if each baked in directory has been created. If not, it's created
-	create_ticket_aliases - checks if each alias exists inside the USER's shell alias file. If not, it concatenates it to the file. 
-
-SUPPORTED SHELLS
-	Bourne Again Shell (BASH)
-	Z Shell (ZSH)
+	
 
 ERROR CODES:
 
@@ -47,5 +56,12 @@ ERROR CODES:
 2XX - FAILED TICKET OPERATIONS
 
 201 - CANNOT REMOVE [TICKET] - [TICKET] DOESN'T EXIST
-202 - [TICKET] DOESN'T EXIST OR IS COMPLETED
+202 - [TICKET] DOESN'T EXIST, NO TICKETS CREATED
 203 - FAILED TO CREATE TICKET
+204 - TICKET ALREADY COMPLETED
+
+
+###################################
+# CopyRight: Nikolay Panev        #
+# 2024 - Malko Turnovo, Bulgaria  #
+###################################
